@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Myforms</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <h1>
+                <a class="btn btn-secondary btn-lg" href="/logout" style="float: right;">Sign out</a>
+            </h1>
+
+           
+            
+            <br>
+    <!--
+            <h2>Recent Forms</h2>
+            
+                {%if forms%}
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">View Response</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%for form in forms%}
+                        <tr>
+                            <td>{{form.creation_date}}</td>
+                            <td><a href="/editForm/{{form.id}}" class="btn btn-outline-primary">Edit</a></td>
+                            <td><a href="/responses/{{form.id}}" class="btn btn-outline-primary">View</a></td>
+                        
+                        </tr>
+                        {%endfor%}
+                
+                    </tbody>
+                  </table>
+                
+                {%else%}
+                <div>No forms</div>
+                {%endif%}
+            -->
+        </div>
+        <script src={{ url_for('static',filename='js/jquery.min.js') }}></script>
+        <script src={{ url_for('static',filename='js/bootstrap.min.js') }}></script>
+        <script src={{ url_for('static',filename='js/fb.js') }}></script>
+    </body>
+</html>

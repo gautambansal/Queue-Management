@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}SignIn{% endblock %}
+{%block content%}
+<!--Section: Login Form-->
+
+<div class="wrapper" >
+    
+    <div id="formContent">
+    <br>
+    <h2 class="textcolor"> Sign In </h2>
+    <br>
+    <section class="mb-5 login-form">
+        
+
+        <form class="needs-validation" novalidate autocomplete="off" method="POST" >
+    
+        
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32,class="form-control") }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32,class="form-control") }}
+        </p>
+        
+        {% if msg%}
+        <div class="flash alert alert-danger" role="alert">{{ msg }}</div>
+        {% endif %}
+        
+        <p>{{ form.submit(class="btn btn-primary") }}</p>
+        
+        <a href="/signup">New User?</a>
+
+        </form>
+    
+    </section>
+    </div>
+</div>
+  <!--Section: Login Form-->
+
+{%endblock%}

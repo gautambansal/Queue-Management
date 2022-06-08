@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}MyForms :: SignUp{% endblock %}
+{%block content%}
+
+<div class="wrapper" >
+    <div id="formContent">
+    <br/>
+    <h2 class="textcolor"> Sign Up </h2>
+    <br/>
+    <section class="mb-5 login-form">
+        <form class="needs-validation" autocomplete="off" method="POST">
+            <div class="col">
+              <label >First Name<span style="color: red;">*</span></label><br>
+              <input type="text" class="form-control" name="firstname" size="32" required>
+            </div>
+            <div class="col">
+              <label >Last Name<span style="color: red;">*</span></label><br>
+              <input type="text" class="form-control" name="lastname" size="32" required>
+            </div>
+            <div class="form-group col">
+              <label for="inputEmail4">Email<span style="color: red;">*</span></label><br>
+              <input type="email" class="form-control" id="inputEmail4" name="email" size="32" required>
+            </div>
+            <div class="form-group col">
+              <label for="inputPassword4">Password<span style="color: red;">*</span></label><br>
+              <input type="password" class="form-control" id="inputPassword4" name="password" size="32" required>
+            </div>
+              
+            {% if msg%}
+              <div class="flash alert alert-danger" role="alert">{{ msg }}</div>
+            {% endif %}
+            <br/>
+
+            <button type="submit" class="btn btn-primary">Sign up</button>
+            
+            <br/><br/>
+            <a href="/">Already have an account?</a>
+
+        </form>
+    </section>
+    </div>
+</div>
+
+{%endblock%}
