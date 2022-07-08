@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>DoctorQ</title>
+        <title>Admin Dashboard</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,58 +10,41 @@
     </head>
     <body>
         <div class="container">
-            <br>
-            <h1>
-                <a class="btn btn-secondary btn-lg" href="/logout" style="float: right;">Sign out</a>
-            </h1>
-
-           
             
             <br>
-    
-            <h2>Dashboard</h2>
-             
-                {%if latest.status%}
-                <div>Your Number = {{turn}}</div>
-                
-                {%else%}
-                <h4>There are {{tot}} persons in Queue</h4>
-                <a href="/join" class="btn btn-outline-primary">Join</a>
-                {%endif%}
-            <br>
-            <br>
-            <h2>Your Recent Bookings</h2>
-            {%if bookings%}
+            
                 <table class="table">
-                    <thead>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Order ID</th>
+                        <td>{{booking.order_id}}</td>
+                      </tr>
                       <tr>
                         <th scope="col">Booking Date</th>
-                        <th scope="col">status</th>
-                        
+                        <td>{{booking.booking_date}}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                        {%for booking in bookings%}
+                      <tr>
+                        <th scope="col">Payment mode</th>
+                        <td>{{booking.txn_mode}}</td>
+                      </tr>
+                      
+
                         <tr>
-                            <td>{{booking.booking_date}}</td>
+                            <th scope="col">status</th>
                             {%if booking.status==True%}
                             <td>Active</td>
                             {%else%}
                             <td>Deactive</td>
-                            {%endif%}    
-                            
+                            {%endif%}       
                         </tr>
-                        {%endfor%}
-                
+                  
                     </tbody>
                   </table>
-                  {%else%}
-                  <div>No recent bookings</div>
-                  {%endif%}
+                 
+               
         </div>
         <script src={{ url_for('static',filename='js/jquery.min.js') }}></script>
         <script src={{ url_for('static',filename='js/bootstrap.min.js') }}></script>
         <script src={{ url_for('static',filename='js/fb.js') }}></script>
-        
     </body>
 </html>

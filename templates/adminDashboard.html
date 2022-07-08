@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>DoctorQ</title>
+        <title>Admin Dashboard</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,29 +15,32 @@
                 <a class="btn btn-secondary btn-lg" href="/logout" style="float: right;">Sign out</a>
             </h1>
 
-           
-            
             <br>
     
             <h2>Dashboard</h2>
-             
-                {%if latest.status%}
-                <div>Your Number = {{turn}}</div>
-                
-                {%else%}
-                <h4>There are {{tot}} persons in Queue</h4>
-                <a href="/join" class="btn btn-outline-primary">Join</a>
-                {%endif%}
             <br>
+            <div>WELCOME ADMIN!!</div>
+            <div><a class="btn btn-primary" href="/bookoffline" style="width: 150px;">Book offline customer</a></div>
+            {%for message in get_flashed_messages() %}
+            {%if message == "success"%}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>updated!</strong> Successfully
+            </div>
+            {%else%}
+                <div class="alert alert-danger" role="alert">
+                {{message}}
+                </div>
+            {%endif%}
+            {%endfor%}
             <br>
-            <h2>Your Recent Bookings</h2>
             {%if bookings%}
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">Booking Date</th>
                         <th scope="col">status</th>
-                        
+                    
+                        <th scope="col">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -49,6 +52,8 @@
                             {%else%}
                             <td>Deactive</td>
                             {%endif%}    
+                    
+                            <td><a href="/deactive/{{booking.id}}" class="btn btn-outline-primary">deactive</a></td>
                             
                         </tr>
                         {%endfor%}
@@ -56,12 +61,12 @@
                     </tbody>
                   </table>
                   {%else%}
-                  <div>No recent bookings</div>
+                  <div>No bookings</div>
                   {%endif%}
+               
         </div>
         <script src={{ url_for('static',filename='js/jquery.min.js') }}></script>
         <script src={{ url_for('static',filename='js/bootstrap.min.js') }}></script>
         <script src={{ url_for('static',filename='js/fb.js') }}></script>
-        
     </body>
 </html>

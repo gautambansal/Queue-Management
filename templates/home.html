@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>DQ</title>
+    <title>DoctorQ</title>
     <link rel="stylesheet" href= "{{ url_for('static',filename='css/adminStyle.css') }}"> 
     </head>
 <body>
 
   <div>
       <nav class="navbar" style="background-color: #fbfbfb;">
-        <span class="navbar-brand mb-0 h1" style="margin-left: 10px; font-size: xx-large;">Q</span>
+        <span class="navbar-brand mb-0 h1" style="margin-left: 10px; font-size: xx-large;">DoctorQ</span>
         <span><a class="btn btn-outline-primary" href="/login" style="margin-right:15px;">SignIn</a>
         <a class="btn btn-primary" href="/signup" style="margin-right: 15px;">SignUp</a></span>
       </nav>  
@@ -23,16 +23,18 @@
   <div class="row center" >
     
     <div class="col-6 align-items-center justify-content-center" style="display: flex; flex-direction: column; border-right: solid 1px;">
-        <h1>Queue</h1>
+        <h1>Book your doctor's appointment with few clicks</h1>
         <br/>
-        <div><a class="btn btn-primary" href="/login" style="margin-right:15px; width: 150px;">Get Started</a></div>
+        <div><a class="btn btn-primary" href="/login" style="width: 150px;">Get Started</a></div>
     </div>
     
-    <div class="col-6 align-items-center justify-content-center d-flex" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="220" height="240" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
-        <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-        <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
-      </svg>
+    <div class="col-6 align-items-center justify-content-center" style="display: grid;"">
+      
+      <div><a rel='nofollow' href='https://www.qr-code-generator.com' border='0' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2F127.0.0.1%3A8000%2Fjoin&chs=180x180&choe=UTF-8&chld=L|2' alt=''></a>
+        <h1>SCAN ME</h1>
+      
+      </div>
+      
     </div>
   </div>
 
@@ -40,6 +42,6 @@
 
   </body>
   <footer class="foot">
-    <div class="text-muted"> © 2021 Dept. Of Computer Science, MBM Jodhpur </div>
+    <div class="text-muted"> © 2022 Dept. Of Computer Science, MBM Jodhpur </div>
   </footer>
 </html>

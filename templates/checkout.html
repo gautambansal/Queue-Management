@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>DoctorQ</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+  function onScriptLoad(){
+        
+      var config = {
+        "root": "",
+        "flow": "DEFAULT",
+        "data": {
+        "orderId":"{{orderId}}", /* update order id */
+        "token": "{{token}}", /* update token value */
+        "tokenType": "TXN_TOKEN",
+        "amount": "100.00" /* update amount */
+        },
+        "handler": {
+          "notifyMerchant": function(eventName,data){
+            console.log("notifyMerchant handler function called");
+            console.log("eventName => ",eventName);
+            console.log("data => ",data);
+          } 
+        }
+      };
+
+      if(window.Paytm && window.Paytm.CheckoutJS){
+          window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+              // initialze configuration using init method 
+              window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+                  // after successfully updating configuration, invoke JS Checkout
+                  window.Paytm.CheckoutJS.invoke();
+              }).catch(function onError(error){
+                  console.log("error => ",error);
+              });
+          });
+      } 
+  }
+</script>
+<script type="application/javascript" crossorigin="anonymous" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/yqIOLs05230201544957.js" onload="onScriptLoad();"> </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Please do not refresh or press back</h1>
+            <br>
+            <h2>Redirecting...</h2>
+        </div>
+        <script src={{ url_for('static',filename='js/jquery.min.js') }}></script>
+        <script src={{ url_for('static',filename='js/bootstrap.min.js') }}></script>
+        <script src={{ url_for('static',filename='js/fb.js') }}></script>
+        
+    </body>
+</html>
