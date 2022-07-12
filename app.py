@@ -231,7 +231,12 @@ def checkout():
     else:
         return render_template('fail.html',msg = paytmParams['RESPMSG'] )
     
-    
+
+@app.route('/view/<int:booking_id>',methods = ['GET','POST'])
+@login_required
+def viewBooking(booking_id):
+    curr_booking = Bookings.query.get(booking_id)
+    return render_template('viewbooking.html',booking=curr_booking)
 
 @app.route('/deactive/<int:booking_id>',methods = ['GET','POST'])
 @admin_login_required
